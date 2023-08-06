@@ -35,8 +35,8 @@ const double _kIndicatorWidth = 64;
 /// [NavigationDestination]s).
 ///
 /// {@tool dartpad}
-/// This example shows a [NavigationBar] as it is used within a [Scaffold]
-/// widget. The [NavigationBar] has three [NavigationDestination] widgets and
+/// This example shows a [NavigationBarLongPress] as it is used within a [Scaffold]
+/// widget. The [NavigationBarLongPress] has three [NavigationDestination] widgets and
 /// the initial [selectedIndex] is set to index 0. The [onDestinationSelected]
 /// callback changes the selected item's index and displays a corresponding
 /// widget in the body of the [Scaffold].
@@ -45,17 +45,17 @@ const double _kIndicatorWidth = 64;
 /// {@end-tool}
 ///
 /// {@tool dartpad}
-/// This example showcases [NavigationBar] label behaviors. When tapping on one
-/// of the label behavior options, the [labelBehavior] of the [NavigationBar]
+/// This example showcases [NavigationBarLongPress] label behaviors. When tapping on one
+/// of the label behavior options, the [labelBehavior] of the [NavigationBarLongPress]
 /// will be updated.
 ///
 /// ** See code in examples/api/lib/material/navigation_bar/navigation_bar.1.dart **
 /// {@end-tool}
 ///
 /// {@tool dartpad}
-/// This example shows a [NavigationBar] as it is used within a [Scaffold]
+/// This example shows a [NavigationBarLongPress] as it is used within a [Scaffold]
 /// widget when there are nested navigators that provide local navigation. The
-/// [NavigationBar] has four [NavigationDestination] widgets with different
+/// [NavigationBarLongPress] has four [NavigationDestination] widgets with different
 /// color schemes. The [onDestinationSelected] callback changes the selected
 /// item's index and displays a corresponding page with its own local navigator
 /// in the body of a [Scaffold].
@@ -68,14 +68,14 @@ const double _kIndicatorWidth = 64;
 ///  * [BottomNavigationBar]
 ///  * <https://api.flutter.dev/flutter/material/NavigationDestination-class.html>
 ///  * <https://m3.material.io/components/navigation-bar>
-class NavigationBar extends StatelessWidget {
+class NavigationBarLongPress extends StatelessWidget {
   /// Creates a Material 3 Navigation Bar component.
   ///
   /// The value of [destinations] must be a list of two or more
   /// [NavigationDestination] values.
   // TODO(goderbauer): This class cannot be const constructed, https://github.com/dart-lang/linter/issues/3366.
   // ignore: prefer_const_constructors_in_immutables
-  NavigationBar({
+  NavigationBarLongPress({
     super.key,
     this.animationDuration,
     this.selectedIndex = 0,
@@ -104,7 +104,7 @@ class NavigationBar extends StatelessWidget {
   final int selectedIndex;
 
   /// The list of destinations (usually [NavigationDestination]s) in this
-  /// [NavigationBar].
+  /// [NavigationBarLongPress].
   ///
   /// When [selectedIndex] is updated, the destination from this list at
   /// [selectedIndex] will animate from 0 (unselected) to 1.0 (selected). When
@@ -117,12 +117,12 @@ class NavigationBar extends StatelessWidget {
   ///
   /// This callback usually updates the int passed to [selectedIndex].
   ///
-  /// Upon updating [selectedIndex], the [NavigationBar] will be rebuilt.
+  /// Upon updating [selectedIndex], the [NavigationBarLongPress] will be rebuilt.
   final ValueChanged<int>? onDestinationSelected;
 
   final ValueChanged<int>? onDestinationLongPressed;
 
-  /// The color of the [NavigationBar] itself.
+  /// The color of the [NavigationBarLongPress] itself.
   ///
   /// If null, [NavigationBarThemeData.backgroundColor] is used. If that
   /// is also null, then if [ThemeData.useMaterial3] is true, the value is
@@ -130,7 +130,7 @@ class NavigationBar extends StatelessWidget {
   /// and [ColorScheme.onSurface] using an [ElevationOverlay].
   final Color? backgroundColor;
 
-  /// The elevation of the [NavigationBar] itself.
+  /// The elevation of the [NavigationBarLongPress] itself.
   ///
   /// If null, [NavigationBarThemeData.elevation] is used. If that
   /// is also null, then if [ThemeData.useMaterial3] is true then it will
@@ -169,7 +169,7 @@ class NavigationBar extends StatelessWidget {
   /// Otherwise, [RoundedRectangleBorder] with a circular border radius of 16 is used.
   final ShapeBorder? indicatorShape;
 
-  /// The height of the [NavigationBar] itself.
+  /// The height of the [NavigationBarLongPress] itself.
   ///
   /// If this is used in [Scaffold.bottomNavigationBar] and the scaffold is
   /// full-screen, the safe area padding is also added to the height
@@ -269,7 +269,7 @@ class NavigationBar extends StatelessWidget {
 
 /// Specifies when each [NavigationDestination]'s label should appear.
 ///
-/// This is used to determine the behavior of [NavigationBar]'s destinations.
+/// This is used to determine the behavior of [NavigationBarLongPress]'s destinations.
 enum NavigationDestinationLabelBehavior {
   /// Always shows all of the labels under each navigation bar destination,
   /// selected and unselected.
@@ -289,16 +289,16 @@ enum NavigationDestinationLabelBehavior {
   onlyShowSelected,
 }
 
-/// A Material 3 [NavigationBar] destination.
+/// A Material 3 [NavigationBarLongPress] destination.
 ///
-/// Displays a label below an icon. Use with [NavigationBar.destinations].
+/// Displays a label below an icon. Use with [NavigationBarLongPress.destinations].
 ///
 /// See also:
 ///
-///  * [NavigationBar], for an interactive code sample.
+///  * [NavigationBarLongPress], for an interactive code sample.
 class NavigationDestination extends StatelessWidget {
   /// Creates a navigation bar destination with an icon and a label, to be used
-  /// in the [NavigationBar.destinations].
+  /// in the [NavigationBarLongPress.destinations].
   const NavigationDestination({
     super.key,
     required this.icon,
@@ -433,7 +433,7 @@ class NavigationDestination extends StatelessWidget {
 ///
 /// See [NavigationDestination] for an example.
 class _NavigationDestinationBuilder extends StatefulWidget {
-  /// Builds a destination (icon + label) to use in a Material 3 [NavigationBar].
+  /// Builds a destination (icon + label) to use in a Material 3 [NavigationBarLongPress].
   const _NavigationDestinationBuilder({
     required this.buildIcon,
     required this.buildLabel,
@@ -441,7 +441,7 @@ class _NavigationDestinationBuilder extends StatefulWidget {
     this.tooltip,
   });
 
-  /// Builds the icon for a destination in a [NavigationBar].
+  /// Builds the icon for a destination in a [NavigationBarLongPress].
   ///
   /// To animate between unselected and selected, build the icon based on
   /// [_NavigationDestinationInfo.selectedAnimation]. When the animation is 0,
@@ -453,7 +453,7 @@ class _NavigationDestinationBuilder extends StatefulWidget {
   /// animation is decreasing or dismissed.
   final WidgetBuilder buildIcon;
 
-  /// Builds the label for a destination in a [NavigationBar].
+  /// Builds the label for a destination in a [NavigationBarLongPress].
   ///
   /// To animate between unselected and selected, build the icon based on
   /// [_NavigationDestinationInfo.selectedAnimation]. When the animation is
@@ -548,8 +548,8 @@ class _IndicatorInkWell extends InkResponse {
   }
 }
 
-/// Inherited widget for passing data from the [NavigationBar] to the
-/// [NavigationBar.destinations] children widgets.
+/// Inherited widget for passing data from the [NavigationBarLongPress] to the
+/// [NavigationBarLongPress.destinations] children widgets.
 ///
 /// Useful for building navigation destinations using:
 /// `_NavigationDestinationInfo.of(context)`.
@@ -633,7 +633,7 @@ class _NavigationDestinationInfo extends InheritedWidget {
 
   /// The callback that should be called when this destination is tapped.
   ///
-  /// This is computed by calling [NavigationBar.onDestinationSelected]
+  /// This is computed by calling [NavigationBarLongPress.onDestinationSelected]
   /// with [index] passed in.
   final VoidCallback onTap;
 
@@ -668,7 +668,7 @@ class _NavigationDestinationInfo extends InheritedWidget {
   }
 }
 
-/// Selection Indicator for the Material 3 [NavigationBar] and [NavigationRail]
+/// Selection Indicator for the Material 3 [NavigationBarLongPress] and [NavigationRail]
 /// components.
 ///
 /// When [animation] is 0, the indicator is not present. As [animation] grows
@@ -788,7 +788,7 @@ class NavigationIndicator extends StatelessWidget {
 /// will shift and fade accordingly.
 class _NavigationBarDestinationLayout extends StatelessWidget {
   /// Builds a widget to layout an icon + label for a destination in a Material
-  /// 3 [NavigationBar].
+  /// 3 [NavigationBarLongPress].
   const _NavigationBarDestinationLayout({
     required this.icon,
     required this.iconKey,
@@ -894,7 +894,7 @@ class _DestinationLayoutAnimationBuilder extends StatelessWidget {
 /// Semantics widget for a navigation bar destination.
 ///
 /// Requires a [_NavigationDestinationInfo] parent (normally provided by the
-/// [NavigationBar] by default).
+/// [NavigationBarLongPress] by default).
 ///
 /// Provides localized semantic labels to the destination, for example, it will
 /// read "Home, Tab 1 of 3".
@@ -943,7 +943,7 @@ class _NavigationBarDestinationSemantics extends StatelessWidget {
   }
 }
 
-/// Tooltip widget for use in a [NavigationBar].
+/// Tooltip widget for use in a [NavigationBarLongPress].
 ///
 /// It appears just above the navigation bar when one of the destinations is
 /// long pressed.
